@@ -69,10 +69,12 @@ cages = { -- in lum format
 	{"Bayou LZ0 c #1", 2, 1, 5}, {"Bayou LZ0 c #2", 0, 1, 7}, {"Bayou LZ0 c #3", 2, 1, 6}, {"Bayou LZ0 c #4", 3, 0, 0}, {"Bayou LZ0 c #5", 2, 0, 1}, {"Bayou LZ1 c #1", 1, 0, 2}, {"Bayou LZ1 c #2", 0, 0, 3},
 }; cages[0] = 0x1F10F0; cages[-1] = 0;
 
--- in lum format
-masks = {{"SoWaI/???", 0, 1, 7}, {"SoSaF/???", 0, 0, 0}, {"SoRaL/???", 0, 0, 1}, {"???", 0, 0, 2}}; masks[0] = 0x1F1110; masks[-1] = 0;
-
 lvd = {
+	["quest"] = {
+		{"Mask #1: SoWaI/Axel", 0, 1, 7}, {"Mask #2: SoSaF/Umber", 0, 0, 0}, {"Mask #3: SoRaL/Foutch", 0, 0, 1}, {"Mask #4: IM/Baby Globox", 0, 0, 2},
+		{"CoBD name learnt", 0, 2, 4}, {"Elixir used", 0, 2, 5}, --TODO check offset 0 bits@7-6 for CoBD
+		[0] = 0x1F1110, [-1] = 0},
+
 	["wol"] = {
 		{"z0 c #1", 1, 1, 6}, {"z0 bank #1", 1, 1, 3}, {"z0 bank #2", 1, 1, 5}, {"z0 waterfall", 1, 1, 7}, {"z0 climb", 1, 1, 4},
 		[0] = 0x1F1134, [-1] = 0
