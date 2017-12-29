@@ -1,11 +1,4 @@
--- v2017-10-26/00
-
--- Options
-function init()
-	is_us = true;
-end
-
-
+-- v2017-12-30/00
 
 -- Functions
 function format_4h(n)
@@ -69,11 +62,8 @@ lvd = {
 
 -- Main
 memory.usememorydomain("RDRAM");
-init()
-addr = 0x1D0A94;
-if is_us then
-	addr = addr + 0x100;
-end
+while memory.read_u8(0x303) == 0 do emu.frameadvance() end
+addr = (memory.read_u8(0x308) == 0) and 0x1D0A94 or 0x1D0B94;
 last = 0;
 while true do
 	val = memory.read_u32_be(addr);

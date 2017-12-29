@@ -5,7 +5,6 @@ function init()
 	set_watch("fg", 90)
 	-- set_watch(cages, 90)
 	baseline_lums = 0;
-	is_us = false;
 end
 
 
@@ -210,7 +209,8 @@ lvd = {
 -- Main
 memory.usememorydomain("RDRAM");
 init()
-if is_us then
+while memory.read_u8(0x303) == 0 do emu.frameadvance() end
+if memory.read_u8(0x308) == 0 then
 	watching = watching + 0x100;
 end
 timer = 0;
