@@ -72,7 +72,8 @@ lvd = {
 	["quest"] = {
 		{"Mask #1: SoWaI/Axel", 0, 1, 7}, {"Mask #2: SoSaF/Umber", 0, 0, 0}, {"Mask #3: SoRaL/Foutch", 0, 0, 1}, {"Mask #4: IM/Baby Globox", 0, 0, 2},
 		{"CoBD name learnt", 0, 2, 4}, {"Elixir used", 0, 2, 5}, --TODO check offset 0 bits@7-6 for CoBD
-		[0] = 0x1F1110, [-1] = 0},
+		[0] = 0x1F1110, [-1] = 0
+	},
 
 	["wol"] = {
 		{"z0 c #1", 1, 1, 6}, {"z0 bank #1", 1, 1, 3}, {"z0 bank #2", 1, 1, 5}, {"z0 waterfall", 1, 1, 7}, {"z0 climb", 1, 1, 4},
@@ -209,10 +210,8 @@ lvd = {
 -- Main
 memory.usememorydomain("RDRAM");
 init()
-while memory.read_u8(0x303) == 0 do emu.frameadvance() end
-if memory.read_u8(0x308) == 0 then
-	watching = watching + 0x100;
-end
+while memory.read_u8(0x43921) > 85 do emu.frameadvance() end
+if memory.read_u8(0x43921) ~= 69 then watching = watching + 0x100 end
 timer = 0;
 function o(s)
 	output = output..s;
