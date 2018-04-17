@@ -1,8 +1,9 @@
 -- v2018-04-17/00
 
 -- Opts
-check_last = true;
+check_last = false;
 check_loaded = true;
+draw_to_osd = true;
 
 --[[ Level
 map_id = "level";
@@ -182,7 +183,7 @@ if check_last then
 			last = v;
 			if v ~= 0 and v ~= all_c and is_eu then v = v + data_map[map_id]["meta_eu_offset"] end
 			v = data_map[map_id][v] == nil and format_unknown(v) or data_map[map_id][v];
-			console.writeline(format_output(v));
+		if draw_to_osd then gui.addmessage(format_output(v)) else console.writeline(format_output(v)) end
 		end
 		emu.frameadvance();
 	end
@@ -191,7 +192,7 @@ else
 		v = read_n_bytes_at(addr, data_map[map_id]["meta_field_width"]);
 		if v ~= 0 and v ~= all_c and is_eu then v = v + data_map[map_id]["meta_eu_offset"] end
 		v = data_map[map_id][v] == nil and format_unknown(v) or data_map[map_id][v];
-		console.writeline(format_output(v));
+		if draw_to_osd then gui.text(0, 8, format_output(v), 0xFF3F7FFF, "bottomleft") else console.writeline(format_output(v)) end
 		emu.frameadvance();
 	end
 end
