@@ -211,7 +211,7 @@ lvd = {
 memory.usememorydomain("RDRAM");
 init()
 while memory.read_u8(0x43921) > 85 do emu.frameadvance() end
-if memory.read_u8(0x43921) ~= 69 then watching = watching + 0x100 end
+if memory.read_u8(0x43921) == 85 then watching = watching + 0x100 end
 timer = 0;
 function o(s)
 	output = output..s;
