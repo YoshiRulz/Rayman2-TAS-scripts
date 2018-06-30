@@ -57,8 +57,8 @@ data_map = {
 		[0xC2C90F6D] = "Demo #14 U: PS LZ1", [0xC2C9983C] = "Demo #14 E: PS LZ1",
 
 		[0x41510FDC] = "Main Menu E",
-		[0x4275EC5C] = "AtB Cuts0 U/E", [0x433FBF9C] = "AtB U/E",
-		[0x422C7B42] = "WoL <- AtB U/E", [0xC0E183F0] = "HoD U/E", [0x41100000] = "WoL E",
+		[0x4275EC5C] = "AtB Cuts0 U/E", [0x433FBF9C] = "AtB - U/E",
+		[0x422C7B42] = "WoL <- AtB U/E", [0xC0E183F0] = "HoD - U/E", [0x41100000] = "WoL - E",
 		[0xC0C8A050] = "FG LZ0 U/E", [0xC145F840] = "FG LZ1 U/E", [0xC2AC756C] = "FG LZ2 U/E", [0xC2BDB373] = "FG LZ3 U/E", [0xC214239A] = "FG LZ4 U/E",
 		[0xC3825B50] = "MoA LZ0 U/E", [0xC392B4E8] = "MoA LZ1 U/E",
 		[0x4291DFE4] = "Bonus - U/E",
