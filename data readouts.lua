@@ -15,11 +15,16 @@ map_id = "mvmt_u";
 function format_output(v) return format_mvmt_table(v) end
 function preformat_unknown(v) return {"UNKNOWN:", "0x"..format_2B_h(v), "", "", ""} end
 --]]
+--[[ Last hit target
+map_id = "last_hit_target_u";
+function format_output(v) return v end
+function preformat_unknown(v) return "Unassigned 0x"..format_1B_h(v) end
+--]]
 
 
 
 -- Functions
-function read_n_bytes_at(addr, n) return n == 1 and memory.read_u8_be(addr) or (n == 2 and memory.read_u16_be(addr) or memory.read_u32_be(addr)) end
+function read_n_bytes_at(addr, n) return n == 1 and memory.read_u8(addr) or (n == 2 and memory.read_u16_be(addr) or memory.read_u32_be(addr)) end
 
 function format_1B_h(n) return string.format("%02s", bizstring.hex(n)) end
 function format_2B_h(n) return string.format("%04s", bizstring.hex(n)) end
@@ -169,6 +174,18 @@ data_map = {
 		[0xFA38] = {"", "Stationary", "", "", "Idle (between 'legs')"},
 		[0xFAB8] = {"", "Stationary", "", "", "Idle (right hand)"},
 		[0xFB18] = {"", "Stationary", "", "", "Concentration"}
+	},
+	["last_hit_target_u"] = {
+		["meta_addr_eu"] = 0x1FDFF1, ["meta_addr_us"] = 0x1FDFF1, ["meta_field_width"] = 1, ["meta_eu_offset"] = 0,
+--		[0xXX] = `name`
+		[0x01] = "Robo-Pirate",
+		[0x02] = "Clark controller", --TODO check
+		[0x03] = "Spider",
+		[0x04] = "Foutch",
+		[0x05] = "Axel", -- never shown
+		[0x06] = "Mini Jano",
+		[0x07] = "Razorbeard",
+		[0x08] = "Barrel Pirate"
 	}
 };
 
