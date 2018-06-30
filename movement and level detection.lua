@@ -8,12 +8,12 @@ draw_to_osd = true;
 --[[ Level
 map_id = "level";
 function format_output(v) return v end
-function format_unknown(v) return "UNKNOWN: 0x"..format_4B_h(v) end
+function preformat_unknown(v) return "UNKNOWN: 0x"..format_4B_h(v) end
 --]]
 ---[[ Movement
 map_id = "mvmt_u";
 function format_output(v) return format_mvmt_table(v) end
-function format_unknown(v) return {"UNKNOWN:", "0x"..format_2B_h(v), "", "", ""} end
+function preformat_unknown(v) return {"UNKNOWN:", "0x"..format_2B_h(v), "", "", ""} end
 --]]
 
 
@@ -190,7 +190,7 @@ if check_last then
 		if v ~= last then
 			last = v;
 			if v ~= 0 and v ~= all_c and is_eu then v = v + data_map[map_id]["meta_eu_offset"] end
-			v = data_map[map_id][v] == nil and format_unknown(v) or data_map[map_id][v];
+			v = data_map[map_id][v] == nil and preformat_unknown(v) or data_map[map_id][v];
 		if draw_to_osd then gui.addmessage(format_output(v)) else console.writeline(format_output(v)) end
 		end
 		emu.frameadvance();
@@ -199,7 +199,7 @@ else
 	while true do
 		v = read_n_bytes_at(addr, data_map[map_id]["meta_field_width"]);
 		if v ~= 0 and v ~= all_c and is_eu then v = v + data_map[map_id]["meta_eu_offset"] end
-		v = data_map[map_id][v] == nil and format_unknown(v) or data_map[map_id][v];
+		v = data_map[map_id][v] == nil and preformat_unknown(v) or data_map[map_id][v];
 		if draw_to_osd then gui.text(0, 8, format_output(v), 0xFF3F7FFF, "bottomleft") else console.writeline(format_output(v)) end
 		emu.frameadvance();
 	end
