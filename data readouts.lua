@@ -216,6 +216,7 @@ else
 	while true do
 		v = read_n_bytes_at(addr, data_map[map_id]["meta_field_width"]);
 		if v ~= 0 and v ~= all_c and is_eu then v = v + data_map[map_id]["meta_eu_offset"] end
+		if draw_to_osd and data_map[map_id][v] == nil then console.writeline(format_output(preformat_unknown(v))) end
 		v = data_map[map_id][v] == nil and preformat_unknown(v) or data_map[map_id][v];
 		if draw_to_osd then gui.text(0, 8, format_output(v), 0xFF3F7FFF, "bottomleft") else console.writeline(format_output(v)) end
 		emu.frameadvance();
