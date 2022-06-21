@@ -5,4 +5,4 @@
 
 Check if completed:
 - [ ] I have run the relevant test suite
-- [ ] **mandatory**: I, the committer, have read the [contributor licensing guidelines](https://github.com/YoshiRulz/Rayman2-TAS-scripts/blob/master/contributing.md) (last updated 2022-06-22) and am compliant
+- [ ] I, the committer, have read the [contributor licensing guidelines](https://github.com/YoshiRulz/Rayman2-TAS-scripts/blob/master/contributing.md#licensing) (last updated 2022-06-22) and am compliant
