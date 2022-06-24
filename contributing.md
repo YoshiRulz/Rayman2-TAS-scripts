@@ -1,5 +1,7 @@
 (TODO: contributor's guide to codebase goes here)
 
+## For any: .NET project
+
 ## Licensing
 [//]: # "Changing this section? Don't forget to update the modification date in the PR template!"
 
